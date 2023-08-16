@@ -11,7 +11,7 @@ The "Raw_mDANeuron_phenotypic_features.fth" file contains the data required for 
 The data analysis workflow starts by data loading and feature scaling. Scaling is important for machine learning because it helps to normalize the data and ensure that each feature is on a similar scale.
 
 ## Data visualization
-In the next step, data visualization of individual features and clustering is performed. Clustering can be useful for exploring the structure of high-dimensional datasets and identifying patterns in the data. Next to clustering, dimension reduction approaches are also a useful tool to visualize the similarities and differences of multidimensional phenotypic profiling data. Here we made use of Pairwise Controlled Manifold Approximation (PaCMAP).
+In the next step, data visualization of individual features and clustering is performed. Clustering can be useful for exploring the structure of high-dimensional datasets and identifying patterns in the data. Next to clustering, dimension reduction approaches are also a useful tool to visualize the similarities and differences of multidimensional phenotypic profiling data. Here we made use UMAP and PaCMAP.
 
 ## Supervised Classification
 Next, machine learning-driven supervised classification is performed. Specifically, we used the Light gradient-boosting machine (LightGBM) algorithm. LightGBM is a supervised machine learning algorithm that uses decision tree algorithms to create a model that can be used for ranking or classification. In the notebook, the algorithm is trained with phenotypic profile data from one plate. The trained model is then tested on data from a second independent plate.
