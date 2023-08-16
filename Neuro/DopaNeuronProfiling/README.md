@@ -1,15 +1,22 @@
-# Jupyter Notebook for Data Analysis Workflow
+# Jupyter Notebook for phenotypic profile analysis - *Weiss et al.*
+Full article: dx.doi.org/10.3791/65570
 
-This Jupyter Notebook performs data plotting and all unsupervised and supervised analysis methods described in the scientific article. The data analysis workflow starts by data loading and feature scaling. Scaling is important for machine learning because it helps to normalize the data and ensure that each feature is on a similar scale. This can help improve the performance of machine learning algorithms by making them less sensitive to the scale of the input features.
+## Introduction
+This Jupyter Notebook performs data plotting and all unsupervised and supervised analysis methods described in the article. It can serve as an easy to use entry point into phenotypic profile data analysis.
 
-In the next step, clustering analysis is performed. Clustering can be useful for exploring the structure of high-dimensional datasets and identifying patterns in the data that might not be immediately apparent from looking at individual features. Hierarchical clustering based on the Cosine distance between well-based phenotypic profiles showed strong differences between cell lines, but less for drug treatment.
+## Data structure
+The "Raw_mDANeuron_phenotypic_features.fth" file contains the data required for reproducing the findings reported in *Weiss et al.*. Most columns contain continous phenotypic feature data derived from an image segmentation/analysis workflow using the PhenoLink software (https://github.com/Ksilink/PhenoLink). Additional columns contain categorical data detailing the used experimental conditions (i.e. postion on plate or chemical treatment). Each row contains the mean values per 384-well plate well derived from 16 images acquired using a 40X objective.
 
-Next to clustering, dimension reduction approaches are also a useful tool to visualize the similarities and differences of multidimensional phenotypic profiling data. Here we made use of Pairwise Controlled Manifold Approximation (PaCMAP). Similar to the previous Cosine distance-based approach also PaCMAP showed mainly differences between the two cell lines and to a lesser extend between PFE-360 or DMSO control treated wells.
+## Data Loading and Feature Scaling
+The data analysis workflow starts by data loading and feature scaling. Scaling is important for machine learning because it helps to normalize the data and ensure that each feature is on a similar scale.
 
-To address this limitation of phenotypic profile analysis, we performed machine learning-driven supervised classification. Specifically, we used the Light gradient-boosting machine (LightGBM). LightGBM is a supervised machine learning algorithm that uses decision tree algorithms to create a model that can be used for ranking or classification. LightGBM has been designed to be faster and more efficient than traditional tree-based algorithms such as the Random forest algorithm.
+## Data visualization
+In the next step, data visualization of individual features and clustering is performed. Clustering can be useful for exploring the structure of high-dimensional datasets and identifying patterns in the data. Next to clustering, dimension reduction approaches are also a useful tool to visualize the similarities and differences of multidimensional phenotypic profiling data. Here we made use of Pairwise Controlled Manifold Approximation (PaCMAP).
 
-We trained the algorithm with phenotypic profile data from one plate and tested the trained model on data from a second independent plate. The LightGBM model had an overall accuracy of 85% and correctly predicted the experimental category (cell line or compound) of most wells. The accuracy for cell line prediction was higher than for compound prediction, but also 60% of compound-treated wells were predicted correctly which is superior to classical unsupervised methods.
+## Supervised Classification
+Next, machine learning-driven supervised classification is performed. Specifically, we used the Light gradient-boosting machine (LightGBM) algorithm. LightGBM is a supervised machine learning algorithm that uses decision tree algorithms to create a model that can be used for ranking or classification. In the notebook, the algorithm is trained with phenotypic profile data from one plate. The trained model is then tested on data from a second independent plate.
 
-LightGBM permits to access the importances of the respective phenotypic features for classification of the four classes. Important phenotypic features that distinguish the cell lines and drug treatments are for example related to the cellular surface area or the cellular intensities of the MAP2 and TH stainings.
-
-The obtained results illustrate the potential of phenotypic profiling to distinguish cell lines and compound treatment effects in human mDA neurons.
+## Usage
+1. Clone this repository or download both the notebook .ipynb, data .fth and requirements .txt files into the same directory.
+2. Install the required packages, if not already present.
+3. Open the Jupyter notebook and run the cells to reproduce the analysis.
