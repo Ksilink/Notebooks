@@ -3,7 +3,7 @@
 Link to publication: Not yet available (add bioRxiv later)
 
 ## Purpose
-The provided primary screening data and Jupyter notebook allows to explore the screening data presented in *Thibaudeau et al.* and reproduces the presented results. 
+The provided Jupyter notebook allows to explore the screening data presented in *Thibaudeau et al.* and reproduces the presented results. 
 
 ## Data structure
 The provided data describes the results of the primary screen using chemical compounds whose effects were measured using microscopical imaging and image segmentation. The segmented images were then used to quantify phenotypic features. The data file contains these phenotypic feature names and additional meta data columns. The first row of the csv file contains the column headers, which describe the different data fields (phenotypic features and meta data). Each subsequent row represents a single observation. For example, the first column Plate represents the plate identifier, the second column Well represents the well identifier, and so on. The provided Jupyter notebook will make use of this data.
